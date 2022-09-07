@@ -7,8 +7,8 @@ const Statistics = ({title, data}) => {
             {title && (<h2 className="title">{title}</h2>)}
             <ul className={css.statList}>
                 {data.map(item => <li style={{backgroundColor:  generateGandomColor()}} className={css.item} key={item.id}>
-                        <span className="label">{item.label}</span>
-                        <span className="percentage">{item.percentage}%</span>
+                        <span className={css.label}>{item.label}</span>
+                        <span className={css.percentage}>{item.percentage}%</span>
                 </li>)}
             </ul>
         </section>
@@ -17,9 +17,9 @@ const Statistics = ({title, data}) => {
 export default Statistics;
 
 function generateGandomColor(){
-    const r = Math.round(Math.random() * 255);
-    const g = Math.round(Math.random() * 255);
-    const b = Math.round(Math.random() * 255);
+    const r = Math.round(Math.random() * (200 - 70) + 70);
+    const g = Math.round(Math.random() * (200 - 70) + 70);
+    const b = Math.round(Math.random() * (200 - 70) + 70);
     return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
 }
 
