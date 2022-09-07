@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import css from "./style.module.scss"
+import clsx from 'clsx';
 
 const FriendListItem = ({isOnline, avatar, name}) => {
     return(
         <li className={css.item}>
-            <span className={css.status + " " + (isOnline ? css.statusOnline : css.statusOffline)}></span>
+            <span className={clsx(
+                    css.status, 
+                    isOnline ? css.statusOnline : css.statusOffline
+                )
+            }></span>
             <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
             <p className="name">{name}</p>
         </li>
